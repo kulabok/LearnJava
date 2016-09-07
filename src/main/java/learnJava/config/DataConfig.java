@@ -23,10 +23,6 @@ import java.util.Properties;
 @EnableJpaRepositories("learnJava.dao.repository")
 public class DataConfig {
 
-    /*private static final String PROP_DATABASE_DRIVER = "db.driver";
-    private static final String PROP_DATABASE_PASSWORD = "db.password";
-    private static final String PROP_DATABASE_URL = "db.url";
-    private static final String PROP_DATABASE_USERNAME = "db.username";*/
     private static final String PROP_HIBERNATE_DIALECT = "hibernate.dialect";
     private static final String PROP_HIBERNATE_SHOW_SQL = "hibernate.show_sql";
     private static final String PROP_ENTITYMANAGER_PACKAGES_TO_SCAN = "entitymanager.packages.to.scan";
@@ -44,15 +40,10 @@ public class DataConfig {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-        //dataSource.setDriverClassName(env.getRequiredProperty(PROP_DATABASE_DRIVER));
         dataSource.setDriverClassName(env.getRequiredProperty(PROP_HIBERNATE_CONNECTION_DRIVER_CLASS));
-        //dataSource.setUrl(env.getRequiredProperty(PROP_DATABASE_URL));
         dataSource.setUrl(env.getRequiredProperty(PROP_HIBERNATE_CONNECTION_URL));
-        //dataSource.setUsername(env.getRequiredProperty(PROP_DATABASE_USERNAME));
         dataSource.setUsername(env.getRequiredProperty(PROP_HIBERNATE_CONNECTION_USERNAME));
-        //dataSource.setPassword(env.getRequiredProperty(PROP_DATABASE_PASSWORD));
         dataSource.setPassword(env.getRequiredProperty(PROP_HIBERNATE_CONNECTION_PASSWORD));
-        //dataSource.setConnectionProperties(env.getRequiredProperty(PROP_HIBERNATE_CONNECTION_POOL_SIZE));
 
         return dataSource;
     }
