@@ -19,9 +19,8 @@ public class User {
     private String email;
     @Column (name = "isadmin", nullable = false)
     private boolean isAdmin;
-    @Transient
-    //@OneToMany
-    //@JoinColumn(name = "payed")
+    @OneToMany
+    @JoinColumn(name = "payed")
     private List<Article> payedArticles;
 
     public int getId() {
