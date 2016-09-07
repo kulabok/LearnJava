@@ -14,8 +14,8 @@ public class ArticleDaoImpl implements ArticleDao{
     private ArticleRepository articleRepository;
 
     @Override
-    public boolean exist(int id) {
-        return articleRepository.exists(id);
+    public Article exist(String title) {
+        return articleRepository.exist(title);
     }
 
     @Override
